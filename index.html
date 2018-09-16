@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Happy Birthday!</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			background: #a07fec;
+			text-align: center;
+		}
+		.animation{
+			width: 50px;
+			height: 50px;
+			background: #a07fec;
+			border-radius: 50%;
+			border: 10px solid #a07fec;
+			border-top-color: #e6ffcf;
+			border-bottom-color: #e6ffcf;
+			margin-left: 48%;
+			margin-top: 25%;
+			animation: rotation 2s linear 3;
+		}
+		.divs{
+			width:100%;
+			height: 1px;
+		}
+		.text{
+			width: 100%;
+			position: absolute;
+			display: none;
+			font-family: Arial Black;
+			font-size: 300%;
+			animation: tex 3s linear infinite;
+			text-shadow: 0px 0px 100px #ecff92;
+			color:#e6ffcf;
+			margin-top: 15%;
+			z-index: 2;
+		}
+		@keyframes rotation{
+			0%{
+				transform: rotate(0deg);
+			}
+			100%{
+				transform: rotate(360deg);
+			}
+		}
+		@keyframes tex{
+			0%{
+				transform: rotate(0deg);
+			}
+			25%{
+				transform: rotate(30deg);
+			}
+			50%{
+				transform: rotate(0deg);
+			}
+			75%{
+				transform: rotate(-30deg);
+			}
+			100%{
+				transform: rotate(0deg);
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="animation">
+</div>
+<div class="text">
+	<p>Happy Birthday!</p>
+</div>
+<script type="text/javascript">
+	var animation=document.querySelector(".animation");
+	var divs=document.querySelector(".divs");
+	var text=document.querySelector(".text");
+	colors=["#ba70ff","#cc94ff","#d3a3ff","#b25eff","#9d32ff"];
+	var time=function(){
+		animation.style.display="none";
+		text.style.display="block";
+		for (var i = 0; i < innerHeight; i++) {
+			var div=document.createElement("div");
+			document.body.appendChild(div);
+			div.classList.add("divs");
+			div.style.background=colors[Math.round(Math.random()*4)];
+		}
+	}
+	setTimeout(time,4000);
+</script>
+</body>
+</html>
